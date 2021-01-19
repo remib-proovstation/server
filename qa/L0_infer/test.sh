@@ -244,6 +244,7 @@ for TARGET in cpu gpu; do
     python $INFER_TEST >$CLIENT_LOG 2>&1
     if [ $? -ne 0 ]; then
         cat $CLIENT_LOG
+        cat $SERVER_LOG
         RET=1
     else
         check_test_results $CLIENT_LOG $EXPECTED_NUM_TESTS
